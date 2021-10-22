@@ -1,2 +1,1 @@
-# yaniv.lipovitsky
-school
+yaniv lipovitsky
