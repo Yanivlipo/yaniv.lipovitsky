@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block title %} Assignment 8 {%endblock%}
+{% block content %}
+{{super()}}
+    <br>
+First Name: {{firstName | default('Unknown', true) | upper()}}
+    <br>
+Last Name : {{lastName | default('Unknown', true) | lower()}}
+    <br>
+
+{% if music %}
+    <br>
+    Musicians:
+    <ol>
+    {% for artist in music %}
+        <li>{{artist}}</li>
+    {% endfor %}
+    </ol>
+{% else %}
+    Did not provide any musician
+{% endif %}
+
+<br>
+Hobbies:
+<ol>
+    {% for hobby in hobbies %}
+        <li>{{hobby}}</li>
+    {% endfor %}
+</ol>
+{% endblock %}
