@@ -1,0 +1,9 @@
+{
+ "users" : {
+   "user1": {"name": "Yossi", "email": "yossi@gmail.com", "password": "111", "nickname":  "yossile"},
+   "user2": {"name": "Yaniv", "email": "yaniv@gmail.com", "password": "222", "nickname":  "yanivush"},
+   "user3": {"name": "Gil", "email": "gil@gmail.com", "password": "123", "nickname":  "gilush"},
+   "user4": {"name": "Yaron", "email": "yaron@gmail.com", "password": "233", "nickname":  "yaronush"},
+   "user5": {"name": "Galit", "email": "galit@gmail.com", "password": "222", "nickname":  "galiti"}
+ }
+}

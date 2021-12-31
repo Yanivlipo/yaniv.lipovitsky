@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content%}
+    <label for="search-form">Search a User: </label>
+    <form id="search-form" action="/users" method="GET">
+        <input type="search" id="searchUser" name="search" placeholder="Yaniv">
+        <button>Search</button>
+    </form>
+
+    {% if users %}
+        <br>
+        Users:
+        <ol>
+        {% for user in users %}
+            <li>Name: {{user["name"]}}. Email: {{user["email"]}}</li>
+        {% endfor %}
+        </ol>
+    {% elif not_found %}
+        Did not find any user
+    {% endif %}
+
+    {% if session.user %}
+    {% elif failed_registered %}
+        Unable to register user
+    {% else %}
+        <label for="register-form">Register</label>
+        <form id="register-form" action="/users" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="nickname">Nickname</label>
+            <input type="text" id="nickname" name="nickname"><br><br>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"><br><br>
+            <button>Register</button>
+        </form>
+    {% endif %}
+
+    {% if session.user %}
+    <form id="logout-form" action="/logout" method="GET">
+        <button>Logout</button>
+    </form>
+    {% else %}
+    {% endif %}
+
+{% endblock %}
