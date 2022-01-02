@@ -1,3 +1,7 @@
 <Header>
-    {% if session.user %}  Logged-in {{session.user.nickname}} {% endif %}
+        {% if session.success %}
+        Successfully executed {{session.success}}
+        {% elif session.failed %}
+        Failed executing {{session.failed}}
+        {% endif %}
 </Header>

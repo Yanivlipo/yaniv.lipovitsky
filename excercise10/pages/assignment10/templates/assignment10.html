@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content%}
+
+
+    <label for="register-form">Register</label>
+    <form id="register-form" action="/user" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name"><br><br>
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email"><br><br>
+        <label for="nickname">Nickname</label>
+        <input type="text" id="nickname" name="nickname"><br><br>
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password"><br><br>
+        <button>Register</button>
+    </form>
+
+
+    <label for="update-form">Update user</label>
+    <form id="update-form" action="/user" method="POST">
+        <input type="hidden" name="_method" value="PUT">
+        <label for="new-name">New Name:</label>
+        <input type="text" id="new-name" name="new_name"><br><br>
+        <label for="new-nickname">New Nickname:</label>
+        <input type="text" id="new-nickname" name="new_nickname"><br><br>
+        <label for="update-email">Email</label>
+        <input type="email" id="update-email" name="email"><br><br>
+        <button>Update</button>
+    </form>
+
+
+    <label for="delete-form">Delete user</label>
+    <form id="delete-form" action="/user" method="POST">
+        <input type="hidden" name="_method" value="DELETE">
+        <label for="update-email">Email</label>
+        <input type="email" id="delete-email" name="email"><br><br>
+        <button>Delete</button>
+    </form>
+
+
+
+    <br><br>
+    {% if users %}
+        <br>
+        Users:
+        <ol>
+        {% for user in users %}
+            <li>Name: {{user["name"]}}. Email: {{user["email"]}} Nickname: {{user["nickname"]}}</li>
+        {% endfor %}
+        </ol>
+    {% endif %}
+
+
+{% endblock %}
