@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block content%}
+
+    <h1>users from DB: </h1>
+    <div id="users"></div>
+    <br><br>
+    <h1>request from frontend</h1>
+    <form onsubmit="fetchUserExternal(event)">
+        <input type="number" id="reqid" placeholder="id">
+        <input type="submit">
+    </form>
+
+    <br><br>
+    <h1>request from backend</h1>
+        <form action="/outer_source">
+        <input type="number" name="userId" placeholder="id">
+        <input type="submit">
+    </form>
+
+    <main>
+        {% if user %}
+            <img src="{{ user.avatar }}"/>
+            <h1>{{ user.first_name }}</h1>
+            <h1>{{user.last_name}}</h1>
+        {% endif %}
+    </main>
+    <script src="{{ url_for('static', filename='ajax.js') }}"></script>
+
+{% endblock%}
